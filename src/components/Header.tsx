@@ -8,7 +8,7 @@ const Header: React.FC<HeaderProps> = () => {
   return (
     <Base>
       <CoverThree />
-      <Title>안녕하세요</Title>
+      <Title>남궁철의 포트폴리오입니다.</Title>
     </Base>
   );
 };
