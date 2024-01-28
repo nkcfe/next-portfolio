@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import { PerspectiveCamera } from "three";
-import Cube from "./r3f/Cube";
+import CoverThree from "./r3f";
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   return (
     <Base>
-      <Cube />
+      <CoverThree />
+      <Title>안녕하세요</Title>
     </Base>
   );
 };
@@ -19,11 +19,20 @@ const Base = styled.div`
   width: 100%;
   height: 100vh;
 
-  background-color: var(--black);
+  background-color: var(--coverBg-color);
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   color: var(--white);
+  position: relative;
+`;
+
+const Title = styled.div`
+  position: absolute;
+  font-size: 7rem;
+  font-weight: 700;
+  bottom: 20%;
+  left: 5%;
 `;
