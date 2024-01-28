@@ -2,7 +2,6 @@
 
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Intro from "@/components/Intro";
 import Port from "@/components/Port";
 import Site from "@/components/Site";
@@ -13,6 +12,9 @@ import { GlobalStyle } from "@/styles/globalStyles";
 import "@/styles/var.scss";
 import { lenis } from "@/utils/lenis";
 import { link } from "@/utils/link";
+import Cover from "@/components/cover";
+import Header from "@/components/Header";
+import About from "@/components/About";
 
 const Home = () => {
   useEffect(() => {
@@ -26,6 +28,8 @@ const Home = () => {
       <Skip />
       <Header />
       <main>
+        <Cover />
+        <About />
         <Intro />
         <Skill />
         <Site />
