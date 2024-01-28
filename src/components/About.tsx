@@ -5,7 +5,7 @@ const About = () => {
   return (
     <Base>
       <Wrapper>
-        <Title>I'm Chul.</Title>
+        <Title>I&apos;m Chul.</Title>
       </Wrapper>
     </Base>
   );

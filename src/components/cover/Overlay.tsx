@@ -11,7 +11,7 @@ const Overlay = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 2 }}
         >
-          Hi. I'm Chul. <br />
+          Hi. I&apos;m Chul. <br />
           <span>Frontend Developer.</span>
         </Title>
       </TitleContainer>
