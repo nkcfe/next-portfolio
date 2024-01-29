@@ -1,62 +1,58 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import CoverThree from "./cover/r3f";
+import ThreeText from "./cover/r3f/threefont";
 
 const About = () => {
   return (
     <Base>
-      <Wrapper>
-        <Title>I&apos;m Chul.</Title>
-      </Wrapper>
+      <TextContainer>
+        <CoverThree>
+          <ThreeText />
+        </CoverThree>
+      </TextContainer>
     </Base>
   );
 };
 
 export default About;
 
-const gradientAnimation = keyframes`
-  0% {
-    background-position: 0 0;
-  }
-  25% {
-    background-position: 50% 0;
-  }
-  50% {
-    background-position: 90% 0;
-  }
-  60% {
-    background-position: 60%;
-  }
-  75% {
-    background-position: 40%;
-  }
-  100% {
-    background-position: 0 0;
-  }
-`;
-
 const Base = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: var(--coverBg-color);
-  /* 
+  background-color: var(--aboutBg-color);
+  position: relative;
+
+  display: flex;
+  justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to right, var(--coverBg-color), #00a7cf);
-  background-size: 600%;
-  background-position: 0 0;
-  box-shadow: inset 0 0 5em rgba(0, 0, 0, 0.5);
-  animation: ${gradientAnimation} 60s infinite; */
 `;
 
-const Wrapper = styled.div`
+const TextContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  /* background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Title = styled.h1`
-  padding-top: 100px;
-  width: 100%;
+const TitleContainer = styled.div`
+  font-size: 7rem;
+  font-weight: 800;
+  color: var(--white);
+`;
+
+const DescriptionContainer = styled.div`
   text-align: center;
+  margin-top: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--white);
 `;

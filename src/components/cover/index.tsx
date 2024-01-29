@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CoverThree from "./r3f";
 import Overlay from "./Overlay";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+import Stars from "./r3f/stars";
 
 const Cover = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -11,7 +12,9 @@ const Cover = () => {
 
   return (
     <Base>
-      <CoverThree />
+      <CoverThree>
+        <Stars />
+      </CoverThree>
       <Overlay isPageEnd={isPageEnd} />
       <IntersectionContainer ref={ref} />
     </Base>
