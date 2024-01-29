@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Port from "@/components/Port";
 import Site from "@/components/Site";
-import Skill from "@/components/Skill";
+import Skill from "@/components/skill";
 import Skip from "@/components/Skip";
 import React, { useEffect } from "react";
 import { GlobalStyle } from "@/styles/globalStyles";
@@ -14,7 +14,7 @@ import { smooth } from "@/utils/lenis";
 import { link } from "@/utils/link";
 import Cover from "@/components/cover";
 import Header from "@/components/Header";
-import About from "@/components/About";
+import About from "@/components/about";
 
 const Home = () => {
   useEffect(() => {
@@ -25,13 +25,12 @@ const Home = () => {
   return (
     <>
       <GlobalStyle />
-      <Skip />
       <Header />
       <>
         <Cover />
         <About />
-        <Intro />
         <Skill />
+        <Intro />
         <Site />
         <Port />
         <Contact />

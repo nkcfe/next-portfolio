@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import CoverThree from "./cover/r3f";
-import ThreeText from "./cover/r3f/threefont";
+import CoverThree from "../cover/r3f";
+import ThreeText from "../cover/r3f/threefont";
 
 const About = () => {
   return (
@@ -21,16 +21,17 @@ const Base = styled.div`
   width: 100%;
   height: 100vh;
   background-color: var(--aboutBg-color);
-  position: relative;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: relative;
 `;
 
 const TextContainer = styled.div`
   width: 100%;
-  height: 80%;
+  height: 100vh;
   position: absolute;
   top: 50%;
   left: 50%;

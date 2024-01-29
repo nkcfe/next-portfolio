@@ -6,17 +6,12 @@ import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import Stars from "./r3f/stars";
 
 const Cover = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const pageRef = useIntersectionObserver(ref, {});
-  const isPageEnd = !!pageRef?.isIntersecting;
-
   return (
     <Base>
       <CoverThree>
         <Stars />
       </CoverThree>
-      <Overlay isPageEnd={isPageEnd} />
-      <IntersectionContainer ref={ref} />
+      <Overlay />
     </Base>
   );
 };
@@ -35,13 +30,4 @@ const Base = styled.div`
 
   color: var(--white);
   position: relative;
-`;
-
-const IntersectionContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  width: 100%;
-  height: 50vh;
 `;

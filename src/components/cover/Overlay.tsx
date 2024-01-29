@@ -6,11 +6,7 @@ import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Props {
-  isPageEnd: boolean;
-}
-
-const Overlay: React.FC<Props> = ({ isPageEnd }) => {
+const Overlay = () => {
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
