@@ -1,10 +1,35 @@
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useTransform } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
-const Overlay = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+interface Props {
+  isPageEnd: boolean;
+}
+
+const Overlay: React.FC<Props> = ({ isPageEnd }) => {
+  const textRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.to(textRef.current, {
+      opacity: 0,
+      duration: 1,
+      delay: 1,
+      ease: "power4.inOut",
+      scrollTrigger: {
+        trigger: ".cover",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.5,
+      },
+    });
+  }, [textRef]);
+
   return (
-    <Base>
+    <Base ref={textRef}>
       <TitleContainer>
         <Title
           initial={{ opacity: 0 }}
@@ -12,8 +37,14 @@ const Overlay = () => {
           transition={{ duration: 2 }}
         >
           Hi. I&apos;m Chul. <br />
-          <span>Frontend Developer.</span>
         </Title>
+        <SubTitle
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+        >
+          Frontend Developer.
+        </SubTitle>
       </TitleContainer>
     </Base>
   );
@@ -22,14 +53,14 @@ const Overlay = () => {
 export default Overlay;
 
 const Base = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `;
 
-const TitleContainer = styled.div`
+const TitleContainer = styled(motion.div)`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -47,13 +78,16 @@ const Title = styled(motion.h1)`
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  span {
-    font-size: 5rem;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    background: linear-gradient(30deg, #c850c0, #ffcc70);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+`;
+
+const SubTitle = styled(motion.h2)`
+  margin-top: 1rem;
+  font-size: 5rem;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  background: linear-gradient(30deg, #c850c0, #ffcc70);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;

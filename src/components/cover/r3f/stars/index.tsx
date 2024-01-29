@@ -1,13 +1,38 @@
 import { PointMaterial, Points } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { random } from "maath";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const Stars = (props: any) => {
   const ref = useRef<THREE.Group>(null);
+  const { camera } = useThree();
+
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(5000), { radius: 1.5 })
   );
+  useEffect(() => {
+    gsap.to(camera.position, {
+      z: 0.1,
+      scrollTrigger: {
+        trigger: document.body,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.1, // Adjust scrub value as needed
+      },
+    });
+    gsap.to(camera.lookAt, {
+      z: 0.1,
+      scrollTrigger: {
+        trigger: document.body,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.1, // Adjust scrub value as needed
+      },
+    });
+  }, [camera]);
   useFrame((state, delta) => {
     if (!ref.current) return;
     ref.current.rotation.x -= delta / 10;

@@ -10,7 +10,7 @@ import Skip from "@/components/Skip";
 import React, { useEffect } from "react";
 import { GlobalStyle } from "@/styles/globalStyles";
 import "@/styles/var.scss";
-import { lenis } from "@/utils/lenis";
+import { smooth } from "@/utils/lenis";
 import { link } from "@/utils/link";
 import Cover from "@/components/cover";
 import Header from "@/components/Header";
@@ -18,7 +18,7 @@ import About from "@/components/About";
 
 const Home = () => {
   useEffect(() => {
-    lenis();
+    smooth();
     link();
   }, []);
 
@@ -27,7 +27,7 @@ const Home = () => {
       <GlobalStyle />
       <Skip />
       <Header />
-      <main>
+      <>
         <Cover />
         <About />
         <Intro />
@@ -35,7 +35,7 @@ const Home = () => {
         <Site />
         <Port />
         <Contact />
-      </main>
+      </>
       <Footer />
     </>
   );

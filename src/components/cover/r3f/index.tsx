@@ -1,17 +1,29 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
-import CubeGeometry from "./cube";
-import SkeletonGeometry from "./skeleton";
 import Stars from "./stars";
-import { HemisphereLight } from "three";
 
-// const Controls = () => {
-//   const { camera } = useThree();
-//   useEffect(() => {}, []);
-//   return useFrame(() => {
-//     camera.lookAt(0, 0, 0);
-//   });
-// };
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Controls = () => {
+  const { scene, camera } = useThree();
+
+  useEffect(() => {
+    gsap.to(camera.position, {
+      y: 15,
+      scrollTrigger: {
+        trigger: document.body,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.5, // Adjust scrub value as needed
+      },
+    });
+  }, [scene, camera]);
+
+  return null; // You can also use useFrame here if needed
+};
 
 const CoverThree = () => {
   return (

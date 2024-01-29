@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
-const list = ["Intro", "About", "Skill", "Port", "Contact"];
+const list = ["Intro", "About", "Skill", "Port"];
 
 const Header = () => {
   const [selected, setSelected] = useState("Intro");
@@ -33,7 +33,7 @@ const Base = styled.div`
   left: 50%;
   transform: translateX(-50%);
 
-  width: 400px;
+  width: 350px;
 
   height: 50px;
 
@@ -82,7 +82,7 @@ const Hover = styled.div<{ $selectedItem: string }>`
 
   ${({ $selectedItem }) => {
     const index = list.indexOf($selectedItem);
-    const leftPosition = index * 82.5;
+    const leftPosition = index * 93;
     return `left: ${leftPosition}px;`;
   }}
 
