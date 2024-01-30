@@ -8,7 +8,7 @@ import Stars from "./r3f/stars";
 const Cover = () => {
   return (
     <Base className="cover">
-      <CoverThree>
+      <CoverThree position={[0, 0, 1]}>
         <Stars />
       </CoverThree>
       <Overlay />

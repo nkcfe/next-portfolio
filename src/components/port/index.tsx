@@ -24,6 +24,12 @@ const Port = () => {
     handleClose: nextMapHandleClose,
   } = useModal();
 
+  const {
+    isOpen: shareBlogOpen,
+    handleOpen: shareBlogHandleOpen,
+    handleClose: shareBlogHandleClose,
+  } = useModal();
+
   return (
     <Base>
       <Wrapper>
@@ -49,9 +55,11 @@ const Port = () => {
             title="Share Blog"
             subTitle="JWT 인증 기반 블로그 사이트"
             image={jwtLogo}
-            modalCoponent={<ShareBlogModal handleClose={omoHandleClose} />}
-            isOpen={omoOpen}
-            handleOpen={omoHandleOpen}
+            modalCoponent={
+              <ShareBlogModal handleClose={shareBlogHandleClose} />
+            }
+            isOpen={shareBlogOpen}
+            handleOpen={shareBlogHandleOpen}
           />
         </CardContainer>
       </Wrapper>

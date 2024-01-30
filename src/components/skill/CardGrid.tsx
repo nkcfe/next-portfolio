@@ -14,15 +14,14 @@ import {
 } from "react-icons/si";
 import { TbBrandFramerMotion, TbBrandSass } from "react-icons/tb";
 import { RiBearSmileFill } from "react-icons/ri";
-import { motion } from "framer-motion";
 
-const CardGrid = () => {
+interface Props {
+  isPageInit: boolean;
+}
+
+const CardGrid: React.FC<Props> = ({ isPageInit }) => {
   return (
-    <Base
-      initial={{ scale: 0.7, opacity: 0, y: 150 }}
-      animate={{ scale: 1, opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <Base>
       <ColumnFlex $isMarginOn>
         <IconCard icon={<FaHtml5 />} color={"#E34F26"} title="HTML" />
       </ColumnFlex>
@@ -75,7 +74,7 @@ const CardGrid = () => {
 
 export default CardGrid;
 
-const Base = styled(motion.div)`
+const Base = styled.div`
   width: 100%;
   padding-top: 150px;
   display: flex;

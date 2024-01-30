@@ -38,8 +38,8 @@ const Base = styled.div`
   height: 50px;
 
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
 
   z-index: 100;
   padding: 0 20px;
