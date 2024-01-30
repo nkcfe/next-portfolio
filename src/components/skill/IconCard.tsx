@@ -41,4 +41,16 @@ const Base = styled.div<BedgeProps>`
     font-size: 10px;
     font-weight: bold;
   }
+
+  @media only screen and (max-width: 600px) {
+    width: 45px;
+    height: 45px;
+    font-size: 23px;
+    border-radius: 10px;
+    gap: 3px;
+    span {
+      font-size: 8px;
+      font-weight: bold;
+    }
+  }
 `;

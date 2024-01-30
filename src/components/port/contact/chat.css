@@ -1,0 +1,19 @@
+.chat-enter {
+  opacity: 0;
+}
+
+.chat-enter-active {
+  opacity: 1;
+  transition: all 300ms ease;
+  backdrop-filter: blur(5px);
+}
+
+.chat-exit {
+  opacity: 1;
+}
+
+.chat-exit-active {
+  opacity: 0;
+  transition: all 300ms ease;
+  backdrop-filter: blur(5px);
+}

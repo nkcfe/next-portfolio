@@ -3,12 +3,16 @@ import styled from "styled-components";
 import CardGrid from "./CardGrid";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
-const Skill = () => {
+interface Props {
+  skillRef: React.MutableRefObject<HTMLDivElement | null>;
+}
+
+const Skill: React.FC<Props> = ({ skillRef }) => {
   const ref = useRef<HTMLDivElement>(null);
   const pageRef = useIntersectionObserver(ref, {});
   const isPageInit = !!pageRef?.isIntersecting;
   return (
-    <Base>
+    <Base id="Skill" ref={skillRef}>
       <Title>My Skill</Title>
       <CardGrid isPageInit={isPageInit} />
       <ObserverDiv ref={ref} />

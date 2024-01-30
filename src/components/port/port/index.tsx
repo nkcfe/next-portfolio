@@ -1,47 +1,48 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import port from "@/assets/port_image.png";
 import Footer from "../Footer";
 import { IoClose } from "react-icons/io5";
-import shareBlogImage from "@/assets/share_blog.png";
 
 interface Props {
-  handleClose: () => void;
+  handleClose: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-const ShareBlogModal: React.FC<Props> = ({ handleClose }) => {
+const PortModal: React.FC<Props> = ({ handleClose }) => {
   return (
     <>
       <Base>
-        <Title>Share Blog</Title>
-        <Date>2023.11 ~ 2023.11 (1주)</Date>
-        <ImageContainer src={shareBlogImage} alt="nextMap" />
+        <Title>포트폴리오 웹사이트</Title>
+        <Date>2023.01.27 ~ 진행중</Date>
+        <ImageContainer src={port} alt="omo" />
 
         <BodyContainer>
           <SubTitle>프로젝트 간단 설명</SubTitle>
-          <Text>JWT 토큰과 인증 학습용 토이프로젝트</Text>
+          <Text>포트폴리오용 웹사이트</Text>
+          <Text>현재 보고 계신 웹사이트입니다!</Text>
+          <Text>개발 진행중인 웹사이트입니다.</Text>
         </BodyContainer>
 
         <BodyContainer>
           <SubTitle>기술 선정</SubTitle>
-          <Text>Redux-toolkit : Redux대비 보일러코드 감소, 빠른 구현 가능</Text>
-          <Text>
-            styled-components : CSS in Js 학습용으로 선택, 재사용성 향상
-          </Text>
+          <Text>Next.js</Text>
+          <Text>Three.js</Text>
+          <Text>Framer Motion</Text>
 
           <BodyContainer>
-            <SubTitle>역할 (참여도 100%)</SubTitle>
-            <Text>JSON Server와 JWT 토큰을 활용한 인증 세션 구현</Text>
-            <Text>Styled-components를 활용한 스타일링</Text>
-            <Text>Redux-toolkit을 이용한 미들웨어 활용</Text>
-            <Text>Axios를 활용한 api통신</Text>
-            <Text>정규식을 이용한 유효성 검사</Text>
+            <SubTitle>주요 구현</SubTitle>
+            <Text>Next.js를 활용한 사이트 구현</Text>
+            <Text>Three.js를 활용한 3D 모델링 구현</Text>
+            <Text>gsap을 활용한 스크롤 애니메이션 구현</Text>
+            <Text>Framer motion을 활용한 애니메이션 구현</Text>
+            <Text>챗봇 엔터테인먼트 요소 추가</Text>
           </BodyContainer>
         </BodyContainer>
         <Footer
-          siteLink="https://bulletin-board-gules.vercel.app/login"
-          blogLink="https://laser-wheel-ad9.notion.site/Share-Blog-lv4-lv5-0ff5812b35f8494d9ca78b9dad546c32?pvs=4"
-          githubLink="https://github.com/nkcfe/share_blog.git"
+          siteLink="https://chul-portfolio.vercel.app/"
+          blogLink="https://laser-wheel-ad9.notion.site/8a480f8ef3794841813267a17df7b73c?pvs=4"
+          githubLink="https://github.com/nkcfe/next-portfolio.git"
         />
         <CloseBtn onClick={handleClose}>
           <IoClose />
@@ -51,7 +52,7 @@ const ShareBlogModal: React.FC<Props> = ({ handleClose }) => {
   );
 };
 
-export default ShareBlogModal;
+export default PortModal;
 
 const Base = styled.div`
   box-sizing: border-box;

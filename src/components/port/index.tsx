@@ -5,13 +5,19 @@ import useModal from "../../hooks/useModal";
 
 import OmoModal from "./omo";
 import NextMapModal from "./nextMap";
+import ShareBlogModal from "./shareBlog";
 
 import omoLogo from "@/assets/omo_logo.png";
 import nextMapLogo from "@/assets/next_map_logo.png";
 import jwtLogo from "@/assets/jwt.jpg";
-import ShareBlogModal from "./shareBlog";
+import logo from "@/assets/logo.png";
+import PortModal from "./port";
 
-const Port = () => {
+interface Props {
+  portRef: React.MutableRefObject<HTMLDivElement | null>;
+}
+
+const Port: React.FC<Props> = ({ portRef }) => {
   const {
     isOpen: omoOpen,
     handleOpen: omoHandleOpen,
@@ -30,11 +36,25 @@ const Port = () => {
     handleClose: shareBlogHandleClose,
   } = useModal();
 
+  const {
+    isOpen: portOpen,
+    handleOpen: portHandleOpen,
+    handleClose: portHandleClose,
+  } = useModal();
+
   return (
-    <Base>
+    <Base id="Port" ref={portRef}>
       <Wrapper>
         <Title>Portpolio.</Title>
         <CardContainer>
+          <Card
+            title="포트폴리오 웹사이트"
+            subTitle="Next.js, Three.js 활용 웹사이트"
+            image={logo}
+            modalCoponent={<PortModal handleClose={portHandleClose} />}
+            isOpen={portOpen}
+            handleOpen={portHandleOpen}
+          />
           <Card
             title="넥스트맵 ( NextMap )"
             subTitle="지도 기반 맛집 추천 사이트"
@@ -95,6 +115,8 @@ const Wrapper = styled.div`
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 
+  padding-bottom: 50px;
+
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -107,6 +129,10 @@ const Title = styled.div`
   font-weight: 800;
   color: #8fdbc2;
   opacity: 0.9;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 5.5rem;
+  }
 `;
 
 const CardContainer = styled.div`

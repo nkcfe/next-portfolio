@@ -1,13 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
 const list = ["Intro", "About", "Skill", "Port"];
 
-const Header = () => {
+interface Props {
+  isCoverOn: boolean;
+  isAboutOn: boolean;
+  isSkillOn: boolean;
+  isPortOn: boolean;
+}
+
+const Header: React.FC<Props> = ({
+  isCoverOn,
+  isAboutOn,
+  isSkillOn,
+  isPortOn,
+}) => {
   const [selected, setSelected] = useState("Intro");
+
+  useEffect(() => {
+    if (isCoverOn) {
+      setSelected("Intro");
+    } else if (isAboutOn) {
+      setSelected("About");
+    } else if (isSkillOn) {
+      setSelected("Skill");
+    } else if (isPortOn) {
+      setSelected("Port");
+    }
+  }, [isAboutOn, isCoverOn, isPortOn, isSkillOn]);
 
   const handleSelect = (item: string) => {
     setSelected(item);
+    const targetElement = document.querySelector(`#${item}`);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   return (

@@ -41,7 +41,6 @@ const Base = styled.div`
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
 
-  width: 100%;
   height: 80px;
 
   padding: 30px;
@@ -52,6 +51,22 @@ const Base = styled.div`
     background: rgba(255, 255, 255, 0.3);
   }
   transition: all 0.3s ease;
+  
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 500px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 600px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.div`

@@ -5,9 +5,13 @@ import Overlay from "./Overlay";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import Stars from "./r3f/stars";
 
-const Cover = () => {
+interface Props {
+  coverRef: React.MutableRefObject<HTMLDivElement | null>;
+}
+
+const Cover: React.FC<Props> = ({ coverRef }) => {
   return (
-    <Base className="cover">
+    <Base className="cover" id="Intro" ref={coverRef}>
       <CoverThree position={[0, 0, 1]}>
         <Stars />
       </CoverThree>

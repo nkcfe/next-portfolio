@@ -43,6 +43,21 @@ const Footer = (props: Props) => {
 export default Footer;
 
 const Base = styled.div`
+  @media only screen and (max-width: 600px) {
+    width: 360px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 400px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 600px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    width: 600px;
+  }
   box-sizing: border-box;
 
   margin-top: 50px;

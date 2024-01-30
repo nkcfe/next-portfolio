@@ -4,16 +4,19 @@ import CoverThree from "../cover/r3f";
 import ThreeText from "../cover/r3f/threefont";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
-const About = () => {
+interface Props {
+  aboutRef: React.MutableRefObject<HTMLDivElement | null>;
+}
+
+const About: React.FC<Props> = ({ aboutRef }) => {
   const ref = useRef<HTMLDivElement>(null);
   const pageRef = useIntersectionObserver(ref, {});
   const isPageInit = !!pageRef?.isIntersecting;
 
-  const [isHover, setIsHover] = useState(false);
-
   return (
-    <Base>
+    <Base id="About" ref={aboutRef}>
       <TextContainer>
         <CoverThree position={[0, 0, 0]}>
           <ThreeText />
@@ -23,8 +26,8 @@ const About = () => {
             {isPageInit && (
               <>
                 <motion.div
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  animate={{ scale: 0.95, opacity: 1 }}
+                  initial={{ scale: 1, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5 }}
                   exit={{ opacity: 0 }}
                 >
@@ -39,8 +42,8 @@ const About = () => {
                   전력을 다하는.
                 </motion.div>
                 <motion.div
-                  initial={{ scale: 1.05, opacity: 0 }}
-                  animate={{ scale: 1.05, opacity: 1 }}
+                  initial={{ scale: 1, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5 }}
                   exit={{ opacity: 0 }}
                 >
@@ -48,7 +51,7 @@ const About = () => {
                 </motion.div>
                 <motion.div
                   initial={{ scale: 1, opacity: 0 }}
-                  animate={{ scale: 1.1, opacity: 1 }}
+                  animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5 }}
                   exit={{ opacity: 0 }}
                 >
@@ -56,28 +59,27 @@ const About = () => {
                 </motion.div>
                 <motion.div
                   initial={{ scale: 1, opacity: 0 }}
-                  animate={{ scale: 1.2, opacity: 1 }}
+                  animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.1 }}
                   exit={{ opacity: 0 }}
                 >
                   개발자가 되겠습니다.
                 </motion.div>
                 <IconContainer>
-                  <MotionButton
-                    initial={false}
-                    animate={isHover ? "hover" : "rest"}
-                    whileTap="press"
-                    variants={{
-                      rest: { scale: 1 },
-                      hover: { scale: 1.5 },
-                      press: { scale: 1.4 },
-                    }}
-                    onHoverStart={() => setIsHover(true)}
-                    onHoverEnd={() => setIsHover(false)}
+                  <LinkContainer
+                    href="https://laser-wheel-ad9.notion.site/1e90f8b30e854df4a8daf1733275df5e?pvs=4"
+                    target="_blank"
                   >
-                    Notion
-                  </MotionButton>
-                  <MotionButton>Github</MotionButton>
+                    <MotionButton initial={false} whileHover={{ scale: 1.1 }}>
+                      Notion
+                    </MotionButton>
+                  </LinkContainer>
+                  <LinkContainer
+                    href="https://github.com/nkcfe"
+                    target="_blank"
+                  >
+                    <MotionButton>Github</MotionButton>
+                  </LinkContainer>
                 </IconContainer>
               </>
             )}
@@ -142,7 +144,7 @@ const IconContainer = styled.div`
 const MotionButton = styled(motion.button)`
   border: none;
   cursor: pointer;
-  background-color: #acc7ed;
+  background-color: gray;
   color: #fff;
   border-radius: 60px;
   outline: none;
@@ -154,6 +156,9 @@ const MotionButton = styled(motion.button)`
   text-align: center;
   display: inline-flex;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `;
 
 const ObserverDiv = styled.div`
@@ -163,4 +168,8 @@ const ObserverDiv = styled.div`
   position: absolute;
   bottom: 0;
   z-index: -1;
+`;
+
+const LinkContainer = styled(Link)`
+  text-decoration: none;
 `;

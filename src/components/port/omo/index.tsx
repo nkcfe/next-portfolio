@@ -76,10 +76,10 @@ const OmoModal: React.FC<Props> = ({ handleClose }) => {
           blogLink="https://laser-wheel-ad9.notion.site/OMO-a70b39678b2043c78c17c6bb9989da08?pvs=4"
           githubLink="https://github.com/Team-Omo/team-Omo-FE.git"
         />
+        <CloseBtn onClick={handleClose}>
+          <IoClose />
+        </CloseBtn>
       </Base>
-      <CloseBtn onClick={handleClose}>
-        <IoClose />
-      </CloseBtn>
     </>
   );
 };
@@ -89,7 +89,7 @@ export default OmoModal;
 const Base = styled.div`
   box-sizing: border-box;
   padding: 60px 0;
-  width: 1200px;
+  width: 1100px;
   max-height: 80vh;
 
   background: rgba(255, 255, 255, 0.3);
@@ -102,19 +102,36 @@ const Base = styled.div`
   align-items: center;
 
   overflow-y: scroll;
+
+  position: relative;
+  @media only screen and (max-width: 600px) {
+    width: 400px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 500px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 650px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    width: 1100px;
+  }
 `;
 
 const Title = styled.div`
   font-size: 2rem;
   font-weight: 900;
-  color: #ffc1c1;
+  color: #becdff;
 `;
 
 const Date = styled.div`
   margin-top: 30px;
   font-size: 1rem;
   font-weight: 600;
-  color: #d8b5b5;
+  color: #a5baff;
 `;
 
 const ImageContainer = styled(Image)`
@@ -123,6 +140,20 @@ const ImageContainer = styled(Image)`
   width: 600px;
   height: 400px;
   object-fit: cover;
+  @media only screen and (max-width: 600px) {
+    width: 350px;
+    height: 150px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 450px;
+    height: 200px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 600px;
+    height: 300px;
+  }
 `;
 
 const BodyContainer = styled.div`
@@ -133,12 +164,24 @@ const BodyContainer = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
+
+  @media only screen and (max-width: 600px) {
+    width: 350px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 450px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 600px;
+  }
 `;
 
 const SubTitle = styled.div`
   font-size: 1.3rem;
   font-weight: 700;
-  color: #ffd0d0;
+  color: #becdff;
   margin-bottom: 10px;
 `;
 
@@ -150,9 +193,9 @@ const Text = styled.div`
 `;
 
 const CloseBtn = styled.div`
-  position: fixed;
-  top: 110px;
-  right: 110px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 
   width: 35px;
   height: 35px;
@@ -162,7 +205,7 @@ const CloseBtn = styled.div`
   align-content: center;
   svg {
     font-size: 2rem;
-    color: #c8ffad;
+    color: #577eff;
   }
 
   background: rgba(255, 255, 255, 0.5);
