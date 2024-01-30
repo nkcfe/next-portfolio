@@ -17,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <link rel="icon" type="image/svg+xml" href="favicon/svg" />
-      <body>{children}</body>
+      <body>
+        {children}
+        <div id="modal-root"></div>
+      </body>
     </html>
   );
 }

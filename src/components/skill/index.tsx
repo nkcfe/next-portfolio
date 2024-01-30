@@ -20,7 +20,7 @@ const Base = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 `;
 

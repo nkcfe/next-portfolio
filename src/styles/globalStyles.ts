@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-
+  scroll-behavior: smooth;
   box-sizing: border-box;
   
   font-synthesis: none;
@@ -43,6 +43,5 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 14px;
       line-height: 1.4;
   }
-
 }
 `;

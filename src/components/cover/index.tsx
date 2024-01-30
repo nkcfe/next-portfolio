@@ -7,7 +7,7 @@ import Stars from "./r3f/stars";
 
 const Cover = () => {
   return (
-    <Base>
+    <Base className="cover">
       <CoverThree>
         <Stars />
       </CoverThree>

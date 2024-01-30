@@ -12,11 +12,12 @@ const Overlay = () => {
   useEffect(() => {
     gsap.to(textRef.current, {
       opacity: 0,
+      scale: 2,
       duration: 1,
       delay: 1,
       ease: "power4.inOut",
       scrollTrigger: {
-        trigger: ".cover",
+        trigger: document.querySelector(".cover"),
         start: "top top",
         end: "bottom bottom",
         scrub: 0.5,
